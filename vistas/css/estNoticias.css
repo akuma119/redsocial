@@ -1,0 +1,78 @@
+/* pagina */
+body {
+  font-family: verdana;
+  margin: 0px;
+}
+h1 {
+  /* background-color: #3f4c6b; */
+  padding: 15px;
+  color: white;
+  background-image: url("public/header.jpg");
+  background-size: cover;
+  height: 80px;
+}
+
+ /* contenedor de publicaciones */
+.publicacion {
+  background-color: #F0F0F0;
+  padding: 10px;
+  border-radius: 10px;
+  padding: 10px;
+  color: #3030EE;
+  margin: 5px;
+  margin-bottom: 15px;
+  display: flex;
+}
+.contenedorPublicacion {
+  width:100%;
+}
+.linkUser {
+  color: #4db8ff;
+  text-decoration: none;
+  font-style: bold;
+}
+.linkUser:hover {
+  color: #99d6ff;
+  text-decoration: underline;
+}
+.linkUser:visited {
+  color: #005c99;
+}
+.fecha {
+  float: right;
+  color: gray;
+  display: inline-block;
+}
+.textoPublicacion {
+  color: black;
+  padding: 5px;
+}
+.imagenUsuario {
+  width:40px;
+  height:40px;
+  margin-right: 5px;
+  border-radius: 5px;
+}
+
+/* formulario de publicar */
+.publicacion input[type="text"] {
+  border: 0px;
+  border-radius: 5px;
+  padding: 5px;
+  background-color: #FBFBFB;
+  width: 100%;
+}
+.publicacion input[type="text"]:focus {
+  height:50px;
+}
+.publicacion input[type="submit"] {
+  border: 0px;
+  border-radius: 3px;
+  padding: 5px;
+  background-color: #3f4c6b;
+  color: white;
+  font-size: 20;
+}
+.publicacion input[type="submit"]:hover {
+  background-color: #8080ff;
+}

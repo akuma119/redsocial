@@ -1,20 +1,27 @@
 html
   head
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title Pixilandia
+    style
+      include css/estNoticias.css
   body
-    h1 noticias
-    #contenido
-      
-    script(src="/js/noticias.js")
+    h1 Pixilandia
+    form(method="post" class="publicacion" action="noticias")
+      input(type="text" name="txtpublicacion" placeholder="Publica algo para el trapito!")
+      input(type="submit" value="Publicar")
+    p  
+    - var lista= listaPublicaciones
+    //#lugar= listaPublicaciones
+    #listaContenido
+      each valor in lista
+        - var f= valor.fecha
+        div.publicacion
+          img(src="public/placeholder.png").imagenUsuario
+          div.contenedorPublicacion
+            a(href="/usuarios/"+valor.user).linkUser= "@"+valor.user
+            span.fecha= f.getDay()+"/" + f.getMonth()+"/"+f.getFullYear()+" - "+f.getHours()+":"+f.getMinutes()+":"+f.getSeconds()
+            div.textoPublicacion= valor.texto
+      else
+        p no hay nuevas noticias :(
     script
-      var listaPublicaciones = []
-      
-      // esto luego tiene que irse
-      class Publicacion(usr, txt, img, fecha) = {
-        user: usr,
-        texto: txt,
-        imagen: img,
-        fecha: fecha
-      }
-      
-      listaPublicaciones.push(new Publicacion("tato","hola mundo",null,null))
-      document.getElementById("contenido").innerHTML = listaPublicaciones[0].user
+      include js/compNoticias.js
