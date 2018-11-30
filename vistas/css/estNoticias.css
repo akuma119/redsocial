@@ -4,10 +4,10 @@ body {
   margin: 0px;
 }
 h1 {
-  /* background-color: #3f4c6b; */
+  background-color: #3f4c6b; */
   padding: 15px;
   color: white;
-  background-image: url("public/header.jpg");
+  /*background-image: url("public/header.jpg");*/
   background-size: cover;
   height: 80px;
 }

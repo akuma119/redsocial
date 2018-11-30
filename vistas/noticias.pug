@@ -19,7 +19,7 @@ html
           img(src="public/placeholder.png").imagenUsuario
           div.contenedorPublicacion
             a(href="/usuarios/"+valor.user).linkUser= "@"+valor.user
-            span.fecha= f.getDay()+"/" + f.getMonth()+"/"+f.getFullYear()+" - "+f.getHours()+":"+f.getMinutes()+":"+f.getSeconds()
+            span.fecha= f.getDate()+"/" + (f.getMonth()+1)+"/"+f.getFullYear()+" - "+f.getHours()+":"+f.getMinutes()+":"+f.getSeconds()
             div.textoPublicacion= valor.texto
       else
         p no hay nuevas noticias :(
