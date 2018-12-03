@@ -5,18 +5,15 @@ router.use(bodyParser.urlencoded({extended:false}))
 router.use(bodyParser.json())
 
 // base de datos
-var mongodb = require("mongodb")
-var mongoose = require("mongoose")
-var uri = "mongodb+srv://tato:faster4me@clusterredsocial-q5xoj.mongodb.net/redsocial?retryWrites=true"
-//var uri = "mongodb://localhost:27017/redsocial"
-mongoose.connect(uri,  { useNewUrlParser: true }).catch(err => {console.log("error al conectar:",err)})
+
 var Publicacion = require("../modelos/publicacion.js")
 
 
-router.get('/', (req,res) => {
-  Publicacion.find({}).then( pub => {
+router.get('/', (req,res,next) => {
+  Publicacion.find({}).sort({fecha: -1}).then( pub => {
     //console.log(pub)
     //res.status(200).json(pub)
+    //Publicacion.holamundo()
     res.render("noticias", {listaPublicaciones: pub})
   }).catch( error => {
     console.log("error al consultar:",error)
@@ -27,6 +24,7 @@ router.get('/', (req,res) => {
     }]
     res.render("noticias", {listaPublicaciones: pubError})
   })
+  //next()
   //res.render("noticias")//, {cont: "cargando publicaciones..."})
 })
 /*router.get("/actualizar", (req,res) => {
@@ -46,6 +44,7 @@ router.post('/', (req,res,next) => {
     console.log("creado:"+s)
     res.redirect("noticias")
   })
+  //next()
 })
 
 module.exports = router

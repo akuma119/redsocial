@@ -1,7 +1,10 @@
 var express = require("express")
 var router = express.Router()
+
+// --- rutas estaticas ---
 router.use("/public",express.static('public'))
 
+// --- para usar CORS ---
 router.use((req,res,next) =>{
   res.header('Access-Control-Allow-Origin', '*')
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization')
@@ -11,22 +14,30 @@ router.use((req,res,next) =>{
   }
   next()
 })
-// template
+
+// --- template para generar mas rutas ---
 /*
 router.get("/", (req,res)=> {
   // hacer algo
 })
 */
+
+// --- ruta inicial ---
 router.get("/", (req,res,next)=> {
-  res.redirect("/noticias")
+  //res.redirect("/noticias")
+  res.redirect("/usuarios")
 })
-var rutasNoticias = require('./noticias.js')
+
+// --- rutas de noticias ---
+var rutasNoticias = require('./r_noticias.js')
 router.use("/noticias",rutasNoticias)
-var rutasNoticias = require('./usuarios.js')
-router.use("/usuarios",rutasNoticias)
+
+// --- rutas de usuarios ---
+var rutasUsuarios = require('./r_usuarios.js')
+router.use("/usuarios",rutasUsuarios)
 
 
-// errores
+// --- manejo de errores ---
 router.use((req,res,next)=>{
   var error = new Error(" recurso no encontrado!")
   res.status(404)

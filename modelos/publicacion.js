@@ -6,5 +6,4 @@ var esquemaPublicacion = mongoose.Schema({
   fecha: Date
   //,imagen: BinData
 })
-
 module.exports = mongoose.model('Publicacion', esquemaPublicacion)
