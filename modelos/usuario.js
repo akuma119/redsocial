@@ -4,7 +4,7 @@ var esquemaUsuario = mongoose.Schema({
   nombre: String,
   mail: String,
   pass: String,
-  img: Buffer,//binData,
+  img: String,//binData,
   nivel: Number
 })
 /*EsqUsuario = mongoose.model('Usuario', esquemaUsuario)

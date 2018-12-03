@@ -1,7 +1,7 @@
 html
   head
   body
-    form(method="post" action="usuarios")
+    form(method="post" action="usuarios" enctype="multipart/form-data")
       input(type="text" name="nombre" placeholder="nombre" value="fooBar")
       | nombre
       br
@@ -15,4 +15,5 @@ html
       br
       input(type="submit" value="añadir")
       br
-      #imagen_subida= var_imagen
+      - var img = var_imagen
+      img(src=img)
