@@ -24,10 +24,10 @@ router.get("/", (req,res)=> {
 
 // --- ruta inicial ---
 router.get("/", (req,res,next)=> {
-  //res.redirect("/noticias")
-  res.redirect("/usuarios")
+  //res.redirect("/usuarios")
+  res.redirect("/noticias")
 })
-
+// stumlinghexakill
 // --- rutas de noticias ---
 var rutasNoticias = require('./r_noticias.js')
 router.use("/noticias",rutasNoticias)

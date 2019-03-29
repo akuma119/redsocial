@@ -4,6 +4,6 @@ var esquemaPublicacion = mongoose.Schema({
   user: String,
   texto: String,
   fecha: Date
-  //,imagen: BinData
+  //,imagen: String
 })
 module.exports = mongoose.model('Publicacion', esquemaPublicacion)

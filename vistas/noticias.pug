@@ -17,6 +17,7 @@ html
         - var f= valor.fecha
         div.publicacion
           img(src="public/placeholder.png").imagenUsuario
+          //img(src="/public/uploads/"+valor.info_user[0].img).imagenUsuario
           div.contenedorPublicacion
             a(href="/usuarios/"+valor.user).linkUser= "@"+valor.user
             span.fecha= f.getDate()+"/" + (f.getMonth()+1)+"/"+f.getFullYear()+" - "+f.getHours()+":"+f.getMinutes()+":"+f.getSeconds()

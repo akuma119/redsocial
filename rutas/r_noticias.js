@@ -7,14 +7,44 @@ router.use(bodyParser.json())
 // base de datos
 
 var Publicacion = require("../modelos/publicacion.js")
-
+var Usuario = require("../modelos/usuario.js")
 
 router.get('/', (req,res,next) => {
-  Publicacion.find({}).sort({fecha: -1}).then( pub => {
+
+  /*Publicacion.aggregate([
+    { $lookup: {
+      from: 'usuarios',
+      localField: 'user',
+      foreignField: 'nombre',
+      as: 'info_user'
+    }}
+  ]).then( lpub => {
+    for (i=0; i<lpub.length; i++) {
+      // console.log(lpub[i].info_user[0].img)
+      console.log(lpub[i])
+    }
+    res.render("noticias", {listaPublicaciones: lpub})
+  })*/
+  Publicacion.find({}).sort({fecha: -1}).then( listpub => {
+    l = []
+    //console.log(listpub)
+
+    listpub.forEach((publicacion) => {
+      Usuario.findOne({nombre: publicacion.user}).then( usr => {
+        //console.log(usr)
+        l.push({
+          texto: publicacion,
+          avatar: usr.img
+        })
+      })
+    })
+    //console.log(l)
+    res.render("noticias", {listaPublicaciones: listpub})//listpub})
+
     //console.log(pub)
     //res.status(200).json(pub)
     //Publicacion.holamundo()
-    res.render("noticias", {listaPublicaciones: pub})
+    //res.render("noticias", {listaPublicaciones: lpub})
   }).catch( error => {
     console.log("error al consultar:",error)
     var pubError = [{

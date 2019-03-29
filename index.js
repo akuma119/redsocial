@@ -4,8 +4,8 @@ var app = express()
 // --- base de datos ---
 var mongoose = require("mongoose")
 // elegir una URI
-var uri = "mongodb+srv://tato:faster4me@clusterredsocial-q5xoj.mongodb.net/redsocial?retryWrites=true"
-//var uri = "mongodb://localhost:27017/redsocial"
+//var uri = "mongodb+srv://tato:faster4me@clusterredsocial-q5xoj.mongodb.net/redsocial?retryWrites=true"
+var uri = "mongodb://localhost:27017/redsocial"
 mongoose.connect(uri,  { useNewUrlParser: true })
 .then(con => {
   console.log(" --- conexion con base datos establecida!")
